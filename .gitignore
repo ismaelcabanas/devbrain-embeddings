@@ -35,7 +35,6 @@ __pycache__/
 # ====================================================================
 .env
 .env.local
-.env.*
 !.env.example    # Permitimos este para dejar la plantilla de configuración
 
 # ====================================================================
