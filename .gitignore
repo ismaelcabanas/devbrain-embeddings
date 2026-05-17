@@ -1,0 +1,74 @@
+# ====================================================================
+# Python / Virtual Environment
+# ====================================================================
+venv/
+.venv/
+env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ====================================================================
+# Byte-compiled / optimized / DLL files (Python internals)
+# ====================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ====================================================================
+# Environment Variables & Secrets (CRUCIAL PARA MAQUINA DE IA)
+# ====================================================================
+.env
+.env.local
+.env.*
+!.env.example    # Permitimos este para dejar la plantilla de configuración
+
+# ====================================================================
+# Bases de datos vectoriales locales y almacenamiento de caché
+# ====================================================================
+# Ignoramos las DB locales que usaremos en la Fase 3 (Chroma, FAISS, etc.)
+.chroma/
+chroma_db/
+faiss_indexes/
+*.db
+*.sqlite
+
+# Caché de modelos locales de Hugging Face / Sentence Transformers
+.cache/
+.huggingface/
+
+# ====================================================================
+# Datos de prueba de la aplicación (Fase 2)
+# ====================================================================
+# Si quieres guardar PDFs pesados en local para pruebas sin subirlos a GitHub
+data/sample_docs/*
+!data/sample_docs/.gitkeep   # Mantenemos la carpeta estructurada en Git
+
+# ====================================================================
+# IDEs & System Files
+# ====================================================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+.DS_Store
+Thumbs.db
