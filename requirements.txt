@@ -1,0 +1,29 @@
+# ====================================================================
+# Núcleo Matemático y Procesamiento de Vectores
+# Es el estándar de la industria para computación científica en Python. 
+# Lo usaremos para gestionar los vectores como arrays de floats de 
+# alta eficiencia y para implementar las operaciones de álgebra lineal 
+# (como el producto escalar y las normas) necesarias para calcular 
+# la similitud del coseno.
+# ====================================================================
+numpy>=1.24.0,<2.0.0
+
+# ====================================================================
+# Modelos de IA y Generación de Embeddings Locales
+# Es una librería construida sobre PyTorch y Hugging Face que está 
+# optimizada específicamente para calcular embeddings de frases y 
+# párrafos completos, no solo de palabras sueltas. Nos permite 
+# descargar y ejecutar modelos muy potentes (como los de la familia 
+# BERT o MiniLM) de forma 100% local en tu CPU, sin depender de APIs 
+# externas.
+# ====================================================================
+sentence-transformers>=2.2.2
+
+# ====================================================================
+# Utilidades de Configuración e Infraestructura Básica
+# Te permite parsear el archivo .env 
+# e inyectar esas variables en el os.environ de Python. 
+# Es la forma limpia y estándar en el desarrollo backend de gestionar 
+# configuraciones sin hardcodear rutas o credenciales.
+# ====================================================================
+python-dotenv>=1.0.0
