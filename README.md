@@ -125,13 +125,31 @@ To run the cosine similarity function:
 python -m src.labs.lab02.test_cosine_similarity
 ```
 
-### Lab 03: Embedding Generation
-To run the first semantic similarity simulation using the local Hugging Face transformer:
+### Lab 03: Embedding Generation & Cosine Similarity
+To run the first semantic similarity simulation and inspect the raw embeddings:
 ```bash
 # Ensure you are at the project root and venv is active
 python -m src.labs.lab03.run_cli
 ```
 
+*Why this way?* Using `python -m` injects the current working directory into Python's `sys.path`, allowing the lab scripts to properly resolve the `src.core.*` imports under the hood.
+
+#### 🧠 Lab 03: Understanding the Output & Vector Anatomy
+
+When you execute Lab 03, the script will intercept and print a sample slice of the raw embeddings before calculating the cosine similarity. This section serves as a technical breakdown of how to interpret that raw data:
+
+##### 1. Array Type (`<class 'numpy.ndarray'>`)
+The embedding engine does not return standard Python lists. It outputs native NumPy arrays. In backend engineering, this is crucial for performance: NumPy stores data in contiguous memory blocks and delegates mathematical calculations to highly optimized C subroutines, avoiding the heavy overhead of native Python loops.
+
+##### 2. Vector Shape & Fixed Dimensionality (`Shape: (384,)`)
+No matter if your input text is a single word ("Docker") or a 50-word technical paragraph, **the output vector will always have a fixed size of 384 dimensions** (when using `all-MiniLM-L6-v2`). 
+* In a 2D space, coordinates are `(X, Y)`. 
+* In this semantic space, every text is mapped to exactly 384 coordinates. Each float represents the mathematical intensity or activation of an abstract semantic feature learned by the model during its training.
+
+##### 3. Data Type Precision (`dtype: float32`)
+The weights and coordinates are explicitly cast to 32-bit floating-point numbers (`float32`). 
+* *Production impact:* Standard Python floats use 64 bits (`float64`). Forcing `float32` cuts the memory footprint and disk storage exactly **in half** without any noticeable loss in semantic retrieval precision.
+* *Memory calculation:* 384 dimensions $\times$ 4 bytes (`float32`) = **1,536 bytes (~1.5 KB) per text chunk**. You can use this benchmark to estimate the RAM and storage scaling requirements for large-scale production indexing.
 ---
 
 ## 🛑 Deactivating the Environment
