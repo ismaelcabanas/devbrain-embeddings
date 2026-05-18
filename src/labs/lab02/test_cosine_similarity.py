@@ -1,5 +1,6 @@
+# src/labs/lab02/test_cosine_similarity.py
 import numpy as np
-from metrics import cosine_similarity
+from src.core.metrics import cosine_similarity
 
 # Simulemos vectores de 3 dimensiones: [Tecnología, Cocina, Deportes]
 # Un texto de Docker tendrá mucha "Tecnología"

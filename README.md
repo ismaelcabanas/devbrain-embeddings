@@ -33,15 +33,15 @@ devbrain-embeddings/
 │   │   ├── local_matrix.py  # In-memory RAM matrix with NumPy
 │   │   └── vector_db.py     # Vector Database integration (Chroma/Qdrant)
 │   │
-│   └── api/                 # Service layer and endpoints
+│   ├── api/                 # Service layer and endpoints
+│   │   └── ...
+│   │
+│   └── labs/                # Academic & Research Sandbox (Step-by-step Labs)
 │       ├── __init__.py
-│       ├── main.py          # FastAPI initialization
-│       └── routes.py        # Main endpoints (/api/chat, /api/ingest)
-│
-└── run_cli.py               # Command-line orchestrator for initial phases
+│       └── lab03/
+│           └── run_cli.py   # Lab 03: Local embeddings & Math similarity validation
 
 ```
-
 ---
 
 ## 🛠️ Installation and Environment Setup Guide
@@ -109,6 +109,28 @@ which pip
 ```
 
 **Expected Result:** The returned path must point directly to your project's folder (e.g., `/path/to/your/project/devbrain-embeddings/venv/.../pip`), never to the system directories like `/usr/bin/`.
+
+---
+
+## 🔬 Running Academic Labs
+
+Because this project follows a structured package architecture, all laboratory scripts live inside the `src/labs/` directory. To prevent Python from throwing a `ModuleNotFoundError` due to absolute imports resolution, **never execute labs directly from their subfolders**.
+
+Always run them from the **root directory** of the project using Python's module flag (`-m`):
+
+### Lab 03: Cosine Similarity
+To run the cosine similarity function:
+```bash
+# Ensure you are at the project root and venv is active
+python -m src.labs.lab02.test_cosine_similarity
+```
+
+### Lab 03: Embedding Generation
+To run the first semantic similarity simulation using the local Hugging Face transformer:
+```bash
+# Ensure you are at the project root and venv is active
+python -m src.labs.lab03.run_cli
+```
 
 ---
 
